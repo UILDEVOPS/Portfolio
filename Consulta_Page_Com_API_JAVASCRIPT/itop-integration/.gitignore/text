@@ -1,0 +1,5 @@
+# Arquivos ignorados pelo controle de versão
+
+node_modules/       # Dependências do projeto
+.env                # Variáveis de ambiente sensíveis
+.DS_Store           # Arquivos do macOS

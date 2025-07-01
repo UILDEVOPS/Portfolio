@@ -1,0 +1,31 @@
+package service;
+
+import model.Livro;
+import java.util.ArrayList;
+import java.util.List;
+
+public class BibliotecaService {
+    private List<Livro> livros = new ArrayList<>();
+
+    public void adicionarLivro(Livro livro) {
+        livros.add(livro);
+    }
+
+    public void listarLivros() {
+        if (livros.isEmpty()) {
+            System.out.println("Nenhum livro cadastrado.");
+        } else {
+            livros.forEach(System.out::println);
+        }
+    }
+
+    public void buscarLivro(String titulo) {
+        livros.stream()
+              .filter(l -> l.getTitulo().equalsIgnoreCase(titulo))
+              .findFirst()
+              .ifPresentOrElse(
+                  livro -> System.out.println("Livro encontrado: " + livro),
+                  () -> System.out.println("Livro não encontrado.")
+              );
+    }
+}

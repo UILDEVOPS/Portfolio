@@ -1,0 +1,47 @@
+import service.BibliotecaService;
+import model.Livro;
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        BibliotecaService service = new BibliotecaService();
+        Scanner scanner = new Scanner(System.in);
+
+        while (true) {
+            System.out.println("\n--- Biblioteca ---");
+            System.out.println("1. Adicionar Livro");
+            System.out.println("2. Listar Livros");
+            System.out.println("3. Buscar Livro");
+            System.out.println("4. Sair");
+            System.out.print("Escolha uma opção: ");
+
+            int opcao = scanner.nextInt();
+            scanner.nextLine(); // Limpar buffer
+
+            switch (opcao) {
+                case 1:
+                    System.out.print("Título: ");
+                    String titulo = scanner.nextLine();
+                    System.out.print("Autor: ");
+                    String autor = scanner.nextLine();
+                    System.out.print("Ano: ");
+                    int ano = scanner.nextInt();
+                    service.adicionarLivro(new Livro(titulo, autor, ano));
+                    break;
+                case 2:
+                    service.listarLivros();
+                    break;
+                case 3:
+                    System.out.print("Digite o título: ");
+                    String busca = scanner.nextLine();
+                    service.buscarLivro(busca);
+                    break;
+                case 4:
+                    System.out.println("Saindo...");
+                    System.exit(0);
+                default:
+                    System.out.println("Opção inválida!");
+            }
+        }
+    }
+}

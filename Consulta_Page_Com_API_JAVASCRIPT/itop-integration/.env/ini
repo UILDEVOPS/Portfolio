@@ -1,0 +1,11 @@
+# Arquivo de configuração de ambiente
+# Contém variáveis sensíveis - NUNCA versionar no Git
+
+# URL base da API iTop (obrigatório)
+ITOP_API_ROOT=https://seu-itop-api.com
+
+# Porta do servidor (opcional - padrão 3000)
+PORT=3000
+
+# Nome do banco de dados (opcional)
+DB_NAME=itop_integration
